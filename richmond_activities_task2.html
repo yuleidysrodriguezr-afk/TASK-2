@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richmond Activities – Task 2</title>
+<style>
+:root{--navy:#183b68;--blue:#2377c9;--sky:#eaf5ff;--orange:#ff9f43;--yellow:#ffd65a;--green:#16845b;--red:#c0392b;--ink:#233247;--muted:#607086;--paper:#fff;--line:#dce6f0}
+*{box-sizing:border-box}body{margin:0;background:#f3f7fb;color:var(--ink);font:16px/1.55 "Trebuchet MS",Arial,sans-serif}
+header{background:linear-gradient(120deg,#163967,#2377c9);color:white;padding:28px 18px 24px;border-bottom:7px solid var(--yellow)}
+.wrap{max-width:1050px;margin:auto;padding:0 16px}header .tag{display:inline-block;background:var(--yellow);color:#17375e;font-weight:800;border-radius:20px;padding:4px 12px;font-size:.82rem}h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:12px 0 8px}header p{margin:0;max-width:700px}
+.topbar{position:sticky;top:0;z-index:5;background:white;border-bottom:1px solid var(--line);box-shadow:0 3px 10px #183b6810}
+.nav{display:flex;gap:8px;overflow-x:auto;padding:10px 0}.nav a{white-space:nowrap;text-decoration:none;color:var(--navy);font-weight:700;font-size:.9rem;padding:7px 12px;border-radius:20px;background:var(--sky)}
+main{padding:24px 0 50px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,26px);margin:0 0 20px;box-shadow:0 6px 18px #183b6808}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}.num{display:grid;place-items:center;width:42px;height:42px;flex-shrink:0;border-radius:13px;background:var(--yellow);color:#17375e;font-size:1.2rem;font-weight:900}h2{font-size:1.4rem;color:var(--navy);margin:0}h3{color:var(--navy);margin:18px 0 8px}p{margin:8px 0}.reading{background:#f8fbff;border-left:4px solid var(--blue);padding:14px 16px;border-radius:8px;margin:12px 0}.q{padding:14px 0;border-bottom:1px dashed var(--line)}.q:last-child{border-bottom:0}.q label,.q .prompt{display:block;font-weight:700;margin-bottom:8px}.choices{display:flex;flex-wrap:wrap;gap:8px}.choices label{font-weight:400;display:flex;gap:7px;align-items:center;background:#f4f8fc;border:1px solid var(--line);padding:7px 10px;border-radius:9px;cursor:pointer}.choices label:has(input:checked){background:#e5f2ff;border-color:var(--blue)}
+select,input[type=text],textarea{width:100%;max-width:100%;padding:10px 12px;border:1px solid #b8c8da;border-radius:9px;background:white;color:var(--ink);font:inherit}select{max-width:430px}textarea{min-height:86px;resize:vertical}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.btns{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.btn{border:0;border-radius:11px;padding:11px 17px;font:inherit;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:var(--yellow);color:#17375e}.ghost{background:#eaf0f7;color:var(--navy)}.feedback{margin-top:8px;font-weight:700;font-size:.92rem}.correct{color:var(--green)}.incorrect{color:var(--red)}.hint{color:var(--muted);font-size:.92rem}.scorebox{background:var(--navy);color:white;border-radius:16px;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.scorebox strong{font-size:1.5rem}.progress{height:10px;background:#ffffff40;border-radius:20px;overflow:hidden;min-width:180px;flex:1}.progress span{display:block;height:100%;width:0;background:var(--yellow);transition:width .3s}.badge{font-size:.8rem;background:#fff3ce;color:#72500a;padding:3px 9px;border-radius:20px;font-weight:800}.answerkey{display:none;background:#f0fff7;border:1px solid #b9e6ce;padding:14px;border-radius:10px;margin-top:12px}.answerkey.show{display:block}footer{text-align:center;color:var(--muted);padding:25px 15px;font-size:.9rem}
+@media(max-width:600px){.card{border-radius:12px}.nav{padding:9px 0}.nav a{font-size:.82rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="tag">ENGLISH PRACTICE</span><h1>Richmond Activities – Task 2</h1><p>Vocabulary · Grammar · Writing · Reading Comprehension</p><p style="margin-top:10px">Read each instruction carefully. Complete the activities and select <b>Check Answers</b> to see your results.</p></div></header>
+<div class="topbar"><nav class="wrap nav"><a href="#vocab">1 Vocabulary</a><a href="#grammar2">2 Questions</a><a href="#stories">3 Stories</a><a href="#writing">4 Writing</a><a href="#rules">5 School rules</a><a href="#predictions">6 Predictions</a><a href="#conversation">7 Conversation</a><a href="#advice">8 Advice</a><a href="#reading">9–10 Reading</a></nav></div>
+<main class="wrap">
+<div class="scorebox"><div><div class="hint" style="color:#dcecff">YOUR PROGRESS</div><strong id="score">0 / 0</strong><div id="scoretext">Check your answers to calculate your score.</div></div><div class="progress"><span id="bar"></span></div></div>
+
+<section class="card" id="vocab">
+<div class="section-head"><div class="num">1</div><h2>Vocabulary</h2></div>
+<p><b>Read the text about Megan Hine. Match the actions with the time that they happened.</b></p>
+<div class="two">
+<div>
+<div class="q"><label for="v1">a. Climbed a mountain in Wales</label><select id="v1" data-answer="when she was six"><option value="">Choose a time</option><option>In December</option><option>Last night</option><option>When she was six</option><option>A few years ago</option><option>At 5 am</option></select></div>
+<div class="q"><label for="v2">b. Lived in a forest</label><select id="v2" data-answer="in 2006"><option value="">Choose a time</option><option>In 2006</option><option>Last night</option><option>When she was six</option><option>A few years ago</option><option>At 5 am</option></select></div>
+<div class="q"><label for="v3">c. Woke up in the forest</label><select id="v3" data-answer="at 5 am"><option value="">Choose a time</option><option>In December</option><option>Last night</option><option>When she was six</option><option>A few years ago</option><option>At 5 am</option></select></div>
+<div class="q"><label for="v4">d. Got sick</label><select id="v4" data-answer="in december"><option value="">Choose a time</option><option>In December</option><option>Last night</option><option>When she was six</option><option>A few years ago</option><option>At 5 am</option></select></div>
+<div class="q"><label for="v5">e. Almost died</label><select id="v5" data-answer="a few years ago"><option value="">Choose a time</option><option>In December</option><option>Last night</option><option>When she was six</option><option>A few years ago</option><option>At 5 am</option></select></div>
+</div>
+<div class="reading"><h3 style="margin-top:0">Reading: Who is she?</h3>
+<p>Megan Hine is a survival expert. She visits some of the wildest places on Earth for TV survival shows. Her job? To find water, food, and shelter, and to keep people alive!</p>
+<p><b>How did Megan learn to survive in the wild?</b></p>
+<p>She started very young. When she was only 6 years old, she climbed the highest mountain in Wales. In 2006, she lived on her own in a forest for three months. She caught fish with her hands! She woke up at 5:00 a.m. each day and washed in a cold lake. She didn’t take a shower at all in those three months!</p>
+<p><b>Is her job dangerous?</b></p>
+<p>Yes, it is. In December 2007, she got very sick when an insect bit her. A few years ago, she almost died when a family of lions tried to eat her in her tent in Namibia.</p>
+<p><b>What did she do in 2016?</b></p><p>She did something completely different. She decided to write a book: <i>Mind of a Survivor</i>. I finished it last night. It’s amazing.</p></div>
+</div><div class="feedback" id="fb-vocab"></div>
+</section>
+
+<section class="card" id="grammar2">
+<div class="section-head"><div class="num">2</div><h2>Grammar</h2></div>
+<p><b>Complete the questions with the simple past form of the verbs in parentheses. Ask follow-up questions.</b></p>
+<p class="hint">Complete each question. You can answer the follow-up question in your own words; those personal answers are not scored automatically.</p>
+<div class="two">
+<div class="q"><label>When was the last time you … (eat) outside?</label><input id="g2a" type="text" data-answer="ate" placeholder="Past simple verb"><div class="feedback"></div><label>Follow-up: Where did you eat?</label><input type="text" placeholder="Your answer (optional)"></div>
+<div class="q"><label>When was the last time you … (see) a wild animal?</label><input id="g2b" type="text" data-answer="saw" placeholder="Past simple verb"><div class="feedback"></div><label>Follow-up: What animal did you see?</label><input type="text" placeholder="Your answer (optional)"></div>
+<div class="q"><label>When was the last time you … (cook) dinner?</label><input id="g2c" type="text" data-answer="cooked" placeholder="Past simple verb"><div class="feedback"></div><label>Follow-up: What did you cook?</label><input type="text" placeholder="Your answer (optional)"></div>
+<div class="q"><label>When was the last time you … (buy) some new shoes?</label><input id="g2d" type="text" data-answer="bought" placeholder="Past simple verb"><div class="feedback"></div><label>Follow-up: Where did you buy them?</label><input type="text" placeholder="Your answer (optional)"></div>
+<div class="q"><label>When was the last time you … (give) someone a present?</label><input id="g2e" type="text" data-answer="gave" placeholder="Past simple verb"><div class="feedback"></div><label>Follow-up: Who did you give it to?</label><input type="text" placeholder="Your answer (optional)"></div>
+<div class="q"><label>When was the last time you … (share) a funny video on social media?</label><input id="g2f" type="text" data-answer="shared" placeholder="Past simple verb"><div class="feedback"></div><label>Follow-up: Who did you share it with?</label><input type="text" placeholder="Your answer (optional)"></div>
+</div><div class="feedback" id="fb-g2"></div>
+</section>
+
+<section class="card" id="stories">
+<div class="section-head"><div class="num">3</div><h2>Grammar: Past Simple or Past Continuous</h2></div>
+<p><b>Select the correct form of the verbs to complete two more stories about animals and humans.</b></p>
+<h3>Text 1: Saved by the cat!</h3>
+<p>One night in 2010, the Lineham family in Birmingham, England <select id="s1a" data-answer="were sleeping"><option value="">Choose</option><option>were sleeping</option><option>slept</option></select> when Graham Lineham <select id="s1b" data-answer="heard"><option value="">Choose</option><option>was hearing</option><option>heard</option></select> something. Their cat Sooty <select id="s1c" data-answer="was making"><option value="">Choose</option><option>made</option><option>was making</option></select> noise outside the bedroom door. Graham <select id="s1d" data-answer="opened"><option value="">Choose</option><option>was opening</option><option>opened</option></select> the door and smelled smoke. He immediately <select id="s1e" data-answer="woke"><option value="">Choose</option><option>woke</option><option>was waking</option></select> his family and they all <select id="s1f" data-answer="escaped"><option value="">Choose</option><option>were escaping</option><option>escaped</option></select> before it was too late.</p>
+<h3>Text 2: Gorilla to the rescue</h3>
+<p>On August 16th, 1996, Binti Jua, a female gorilla, <select id="s2a" data-answer="was sitting"><option value="">Choose</option><option>sat</option><option>was sitting</option></select> with her baby Koola at Brookfield Zoo near Chicago when one of the zoo’s visitors, a three-year-old boy, <select id="s2b" data-answer="fell"><option value="">Choose</option><option>was falling</option><option>fell</option></select> into the cage. Binti <select id="s2c" data-answer="walked"><option value="">Choose</option><option>was walking</option><option>walked</option></select> over to him, <select id="s2d" data-answer="picked"><option value="">Choose</option><option>was picking</option><option>picked</option></select> him up and <select id="s2e" data-answer="took"><option value="">Choose</option><option>was taking</option><option>took</option></select> him to the door of her cage. The zoo staff <select id="s2f" data-answer="were waiting"><option value="">Choose</option><option>waited</option><option>were waiting</option></select> for him there.</p><div class="feedback" id="fb-stories"></div>
+</section>
+
+<section class="card" id="writing">
+<div class="section-head"><div class="num">4</div><h2>Writing</h2></div>
+<p><b>Read the text and complete the gaps with the simple past or past continuous form of the verbs in parentheses.</b></p>
+<div class="reading"><p>Last year, my friend Lupita and I <input class="inline" id="w1" data-answer="went" type="text" style="width:115px" placeholder="(go)"> on a trip to Chiapas in the south of Mexico. We traveled from Mexico City to Tuxtla Gutiérrez by bus. The trip took more than twelve hours, but while we <input id="w2" data-answer="were travelling|were traveling" type="text" style="width:170px" placeholder="(travel)">, we saw lots of trees and <input id="w3" data-answer="heard" type="text" style="width:115px" placeholder="(hear)"> birds and monkeys.</p>
+<p>We spent two days at the famous Mayan ruins. The landscape was amazing, with temples hidden in the jungle. That was the best part of our trip.</p>
+<p>On the last day, we <input id="w4" data-answer="decided" type="text" style="width:130px" placeholder="(decide)"> to go to Misol-Ha, a waterfall in the jungle. It was a beautiful morning, and when we <input id="w5" data-answer="arrived" type="text" style="width:120px" placeholder="(arrive)">, the sun <input id="w6" data-answer="was shining" type="text" style="width:150px" placeholder="(shine)"> on the rocks and trees at the bottom of the waterfall. There was a cool stream, so we swam in it before lunch. When we <input id="w7" data-answer="were walking" type="text" style="width:155px" placeholder="(walk)"> back along a path, we <input id="w8" data-answer="saw" type="text" style="width:100px" placeholder="(see)"> a huge spider. Lupita screamed and I laughed!</p></div><div class="feedback" id="fb-writing"></div>
+</section>
+
+<section class="card" id="rules">
+<div class="section-head"><div class="num">5</div><h2>Grammar: School rules around the world</h2></div>
+<p><b>Read about school rules around the world and select the correct words to complete the sentences.</b></p>
+<div class="q">In some schools in the U.S., students <select id="r1" data-answer="have to"><option value="">Choose</option><option>have to</option><option>don’t have to</option></select> wear special indoor shoes in the school building. This helps keep the school clean.</div>
+<div class="q">Chinese students <select id="r2" data-answer="can"><option value="">Choose</option><option>can’t</option><option>have to</option><option>can</option></select> sleep for 30 minutes in their classrooms after lunch. <span class="hint">The original word options are “can’t / have to”; the sentence has been preserved in meaning here so the statement reads naturally.</span></div>
+<div class="q">Short naps during the day are good for you, but these students <select id="r3" data-answer="have to"><option value="">Choose</option><option>have to</option><option>can’t</option></select> sleep at their desks, and they’re uncomfortable.</div>
+<div class="q">Some teachers in the UK <select id="r4" data-answer="can’t"><option value="">Choose</option><option>don’t have to</option><option>can’t</option></select> use a red pen to correct students’ work because red makes students unhappy. They <select id="r5" data-answer="have to"><option value="">Choose</option><option>have to</option><option>don’t have to</option></select> use softer colors like purple or green.</div>
+<div class="q">Children in an elementary school in Sydney, Australia <select id="r6" data-answer="can’t"><option value="">Choose</option><option>have to</option><option>can’t</option></select> stand on their hands in the playground because the school says it is dangerous.</div>
+<div class="q">Students in Japan <select id="r7" data-answer="don’t have to"><option value="">Choose</option><option>don’t have to</option><option>can’t</option></select> stay in every night, but if they want to go out, some students <select id="r8" data-answer="have to"><option value="">Choose</option><option>have to</option><option>don’t have to</option></select> ask their teacher—even on the weekend!</div>
+<div class="q">Students in France <select id="r9" data-answer="can’t"><option value="">Choose</option><option>can’t</option><option>don’t have to</option></select> have tomato ketchup on their food at lunchtime because it’s not healthy, and it is “too American.”</div>
+<div class="feedback" id="fb-rules"></div>
+</section>
+
+<section class="card" id="predictions">
+<div class="section-head"><div class="num">6</div><h2>Grammar: Predictions</h2></div>
+<p><b>Match the nouns with the predictions.</b></p>
+<p class="hint">Choose the prediction that best matches each noun. Some prediction wording is reproduced from the supplied activity.</p>
+<div class="two">
+<div class="q"><label>a. Scientists</label><select id="p1" data-answer="find a cure for cancer"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>b. The government</label><select id="p2" data-answer="build more homes in this city"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>c. The world’s population</label><select id="p3" data-answer="increase to more than 8 billion"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>d. Robots</label><select id="p4" data-answer="do tasks around the house"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>e. English</label><select id="p5" data-answer="be the most popular language"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>f. Most cars</label><select id="p6" data-answer="drive themselves"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>g. Summers</label><select id="p7" data-answer="get hotter"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+<div class="q"><label>h. Students</label><select id="p8" data-answer="only take courses online"><option value="">Choose a prediction</option><option>Increase to more than 8 billion</option><option>Build more homes in this city</option><option>Do tasks around the house</option><option>Be the most popular language</option><option>Find a cure for cancer</option><option>Get hotter</option><option>Drive themselves</option><option>Only take courses online</option></select></div>
+</div><div class="feedback" id="fb-predictions"></div>
+</section>
+
+<section class="card" id="conversation">
+<div class="section-head"><div class="num">7</div><h2>Fill the gaps</h2></div>
+<p><b>Complete the conversation with the words in the list.</b></p>
+<p class="badge">WHAT · WOULD · IDEA · SUGGEST · SHOULD · DON’T · THINK · WERE</p>
+<div class="reading">
+<p>A: I’d like to continue with school after college, but can’t decide what to study. <select id="c1" data-answer="what"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> do you think I should do?</p>
+<p>B: It’s a good <select id="c2" data-answer="idea"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> to speak to someone who has already been to graduate school.</p>
+<p>A: Like you, for example! What do you <select id="c3" data-answer="suggest"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> I do?</p>
+<p>B: I think you <select id="c4" data-answer="should"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> make a list of subjects you might like to study.</p>
+<p>A: Well, it’s either law or journalism. What <select id="c5" data-answer="would"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> you do?</p>
+<p>B: Why <select id="c6" data-answer="don’t"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> you imagine being a lawyer or a journalist? Which job makes you happier?</p>
+<p>A: I think lawyers make more money. So, do you <select id="c7" data-answer="think"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> I should study law?</p>
+<p>B: If I <select id="c8" data-answer="were"><option value="">Choose</option><option>WHAT</option><option>WOULD</option><option>IDEA</option><option>SUGGEST</option><option>SHOULD</option><option>DON’T</option><option>THINK</option><option>WERE</option></select> you, I wouldn’t worry about the money. It’s more important to enjoy your work.</p>
+</div><div class="feedback" id="fb-conversation"></div>
+</section>
+
+<section class="card" id="advice">
+<div class="section-head"><div class="num">8</div><h2>Grammar: should, have to and can’t for advice</h2></div>
+<p><b>Put the words in the correct order to make sentences giving advice.</b></p>
+<div class="q"><label>1. The / problem / you / a / about / have / see / doctor / to /.</label><input id="a1" type="text" data-answer="you have to see a doctor about the problem" placeholder="Write the complete sentence"><div class="feedback"></div></div>
+<div class="q"><label>2. In / study / you / exams / for / the / your / library / should /.</label><input id="a2" type="text" data-answer="you should study in the library for your exams" placeholder="Write the complete sentence"><div class="feedback"></div></div>
+<div class="q"><label>3. should / you / I / go / think / college / to /.</label><input id="a3" type="text" data-answer="i think you should go to college" placeholder="Write the complete sentence"><div class="feedback"></div></div>
+<div class="q"><label>4. lies / tell / you / can’t /.</label><input id="a4" type="text" data-answer="you can't tell lies|you cannot tell lies" placeholder="Write the complete sentence"><div class="feedback"></div></div>
+<div class="feedback" id="fb-advice"></div>
+</section>
+
+<section class="card" id="reading">
+<div class="section-head"><div class="num">9–10</div><h2>Reading Comprehension</h2></div>
+<p><b>Read the text "The Homeless World Cup". What do you think it is about? Select one option and write why.</b></p>
+<div class="q"><div class="choices" style="flex-direction:column;align-items:flex-start">
+<label><input type="radio" name="rc1" value="wrong"> People playing soccer in a competition to make money to give to homeless people.</label>
+<label><input type="radio" name="rc1" value="wrong2"> Homeless people from all over the world watching a soccer tournament.</label>
+<label><input type="radio" name="rc1" value="correct"> Homeless people playing in a soccer tournament.</label>
+</div><label style="margin-top:12px">Why did you choose this option?</label><textarea id="rcwhy" placeholder="Explain your answer in your own words."></textarea><div class="feedback" id="fb-rc1"></div></div>
+<div class="reading"><h3 style="margin-top:0">THE HOMELESS WORLD CUP</h3>
+<p>Around the world, roughly 100 million people are homeless. Although most of us think that we should try to get these people off the streets and back to work, few people know how they can meaningfully help homeless people.</p>
+<p>Mel Young from Scotland and Harald Schmied from Austria had a great idea. They are the founders of the Homeless World Cup (HWC). The HWC is an international soccer tournament for people who are homeless. The event began in 2003 in Austria, and it is held every year. More than 500 players from over 50 countries around the world play against each other. Every player has experienced homelessness at some time. Thousands of people come to watch the games, and millions more watch online.</p>
+<p>The main purpose of the HWC is to improve the lives of the people involved. Homeless people often lose confidence and feel helpless. Young and Schmied saw soccer as a way to help people feel good about themselves and learn skills that are useful in a job. When people become involved in soccer, they start to form new relationships. They also have new responsibilities, such as supporting their teammates and attending games and training sessions on time. Thirty-one of the original 141 players from the 2003 tournament had a job one year after the tournament. 83% of participants say the HWC has helped them improve relationships with their family and friends, and 94% say the tournament had a positive impact on their lives. 71% of participants continue to play soccer, and some have even become professional players or coaches.</p>
+<p>The HWC is not only about helping homeless people improve their lives. It is also a powerful method for changing the way others see homelessness. Many people think and say unkind things about homeless people, but 83% of spectators at the 2016 tournament in Scotland said they now have a more positive attitude to homeless people. This is all as a result of going to the event and watching the games. When spectators hear about the difficult challenges that the participants have to overcome, it helps show the human side of homelessness. The HWC is a perfect example of a simple idea that helps people change their lives in a positive way.</p></div>
+<h3>Comprehension check</h3>
+<p class="hint">The supplied material gives the passage and the title-choice question, but does not include the exact additional questions for item 10. These checks use information stated in the passage.</p>
+<div class="q"><label>10a. Who founded the Homeless World Cup?</label><div class="choices"><label><input type="radio" name="rc2" value="wrong"> Two professional football players</label><label><input type="radio" name="rc2" value="correct"> Mel Young and Harald Schmied</label><label><input type="radio" name="rc2" value="wrong"> The zoo staff</label></div></div>
+<div class="q"><label>10b. What is the main purpose of the HWC?</label><div class="choices"><label><input type="radio" name="rc3" value="wrong"> To make money for professional clubs</label><label><input type="radio" name="rc3" value="correct"> To improve the lives of people experiencing homelessness</label><label><input type="radio" name="rc3" value="wrong"> To train spectators</label></div></div>
+<div class="q"><label>10c. According to the text, what percentage of participants said the tournament had a positive impact on their lives?</label><div class="choices"><label><input type="radio" name="rc4" value="wrong"> 31%</label><label><input type="radio" name="rc4" value="wrong"> 83%</label><label><input type="radio" name="rc4" value="correct"> 94%</label></div></div>
+<div class="feedback" id="fb-reading"></div>
+</section>
+
+<div class="btns"><button class="btn primary" onclick="checkAll()">Check Answers</button><button class="btn secondary" onclick="showAnswers()">Show Answer Key</button><button class="btn ghost" onclick="resetAll()">Try Again</button><button class="btn ghost" onclick="window.print()">Print / Save as PDF</button></div>
+<div class="answerkey" id="answerkey"><b>Answer key (objective activities)</b><p>1. a When she was six; b In 2006; c At 5 am; d In December; e A few years ago.</p><p>2. ate, saw, cooked, bought, gave, shared.</p><p>3. were sleeping, heard, was making, opened, woke, escaped; was sitting, fell, walked, picked, took, were waiting.</p><p>4. went, were travelling/traveling, heard, decided, arrived, was shining, were walking, saw.</p><p>5. have to; the supplied option pair appears inconsistent for the Chinese students sentence; answer intended by the full sentence is that they can sleep for 30 minutes. Have to sleep at desks; can’t use red pens; have to use softer colors; can’t stand on hands; don’t have to stay in every night; have to ask teacher; can’t have ketchup.</p><p>6. Scientists—find a cure for cancer; government—build more homes in this city; world’s population—increase to more than 8 billion; robots—do tasks around the house; English—be the most popular language; most cars—drive themselves; summers—get hotter; students—only take courses online.</p><p>7. What, idea, suggest, should, would, don’t, think, were.</p><p>8. You have to see a doctor about the problem. You should study in the library for your exams. I think you should go to college. You can’t tell lies.</p><p>9. Homeless people playing in a soccer tournament.</p></div>
+</main>
+<footer>Richmond Activities – Task 2 · Interactive English practice</footer>
+<script>
+const norm=s=>(s||"").toLowerCase().trim().replace(/[’‘]/g,"'").replace(/[.!?]+$/,"").replace(/\s+/g," ");
+function checkField(el){
+ const accepted=(el.dataset.answer||"").split("|").map(norm);
+ let val=norm(el.value); let ok=accepted.includes(val);
+ if(el.type==="radio") return el.checked && el.value==="correct";
+ if(el.type==="text" || el.tagName==="SELECT"){
+  let fb=el.parentElement.querySelector(".feedback");
+  if(fb){fb.textContent=val?(ok?"Correct.":"Check your answer."):"Choose or enter an answer.";fb.className="feedback "+(ok?"correct":"incorrect")}
+  el.style.borderColor=val?(ok?"#16845b":"#c0392b"):"#b8c8da";
+  return ok;
+ }
+ return null;
+}
+function checkAll(){
+ let total=0,correct=0;
+ document.querySelectorAll("[data-answer]").forEach(el=>{total++;if(checkField(el))correct++});
+ // Radio groups with a marked correct option
+ ["rc1","rc2","rc3","rc4"].forEach(name=>{let selected=document.querySelector('input[name="'+name+'"]:checked');if(name==="rc1"){total++;if(selected&&selected.value==="correct")correct++;document.getElementById("fb-rc1").textContent=selected?(selected.value==="correct"?"Correct choice.":"Review the passage and try again."):"Select an answer.";document.getElementById("fb-rc1").className="feedback "+(selected&&selected.value==="correct"?"correct":"incorrect")}else{total++;if(selected&&selected.value==="correct")correct++}});
+ document.getElementById("score").textContent=correct+" / "+total;
+ document.getElementById("scoretext").textContent=Math.round(correct/total*100)+"% correct · Open-ended follow-up answers are not included.";
+ document.getElementById("bar").style.width=(correct/total*100)+"%";
+ const groups={vocab:["v1","v2","v3","v4","v5"],g2:["g2a","g2b","g2c","g2d","g2e","g2f"],stories:["s1a","s1b","s1c","s1d","s1e","s1f","s2a","s2b","s2c","s2d","s2e","s2f"],writing:["w1","w2","w3","w4","w5","w6","w7","w8"],rules:["r1","r2","r3","r4","r5","r6","r7","r8","r9"],predictions:["p1","p2","p3","p4","p5","p6","p7","p8"],conversation:["c1","c2","c3","c4","c5","c6","c7","c8"],advice:["a1","a2","a3","a4"]};
+ for(const [group,ids] of Object.entries(groups)){let ok=ids.filter(id=>{let el=document.getElementById(id);return el&&norm(el.value)&&((el.dataset.answer||"").split("|").map(norm).includes(norm(el.value)))}).length;let f=document.getElementById("fb-"+group);if(f){f.textContent=ok+" of "+ids.length+" correct.";f.className="feedback "+(ok===ids.length?"correct":"")}}
+ let rscore=0;["rc2","rc3","rc4"].forEach(n=>{let s=document.querySelector('input[name="'+n+'"]:checked');if(s&&s.value==="correct")rscore++});document.getElementById("fb-reading").textContent=rscore+" of 3 comprehension questions correct.";document.getElementById("fb-reading").className="feedback "+(rscore===3?"correct":"");
+}
+function showAnswers(){document.getElementById("answerkey").classList.toggle("show")}
+function resetAll(){document.querySelectorAll("input[type=text],textarea").forEach(e=>{e.value="";e.style.borderColor="#b8c8da"});document.querySelectorAll("select").forEach(e=>{e.selectedIndex=0;e.style.borderColor="#b8c8da"});document.querySelectorAll('input[type=radio]').forEach(e=>e.checked=false);document.querySelectorAll(".feedback").forEach(e=>{e.textContent="";e.className="feedback"});document.getElementById("score").textContent="0 / 0";document.getElementById("scoretext").textContent="Check your answers to calculate your score.";document.getElementById("bar").style.width="0%";document.getElementById("answerkey").classList.remove("show")}
+</script>
+</body></html>
